@@ -1,95 +1,82 @@
-# 《IDEA Plugin 开发手册》• 小傅哥.pdf
+# 博客搭建介绍
 
-作者：小傅哥
-<br/>博客：[https://bugstack.cn](https://bugstack.cn)
+## 一、docsify 介绍
 
->沉淀、分享、成长，让自己和他人都能有所收获！😄
+docsify 可以快速帮你生成文档网站。不同于 GitBook、Hexo 的地方是它不会生成静态的 .html 文件，所有转换工作都是在运行时。如果你想要开始使用它，只需要创建一个 index.html 就可以开始编写文档并直接部署在 GitHub Pages。官网：https://docsify.js.org/#/zh-cn
 
-## 一、前言
+### 1. 目录结构
 
-`💥为什么？写写快乐的热门文章不好吗！`
+![catalogue](assets/img/catalogue.png)
+- docsify 的目录结构配置非常简单，如果你不需要修改的话，只是 md 目录编写文档，在 _sidebar.md 配置文章路径即可。
+- index.html 用于配置一些网站的基础信息，包括：网站采集、留言板、地址等。
+- _coverpage.md 用于配置博客首页的介绍信息和网站Logo等。
 
-从开始准备成体系的编写 `IDEA Plugin` 知识内容前，我就知道这大概率不会是一个有太多阅读量的文章，因为基本日常的工作开发中几乎也用不到这样的知识。
+### 2. md 说明
+- 所有的文章内容，都是使用 MD 格式进行编写。
+- MD 使用文档：https://www.runoob.com/markdown/md-tutorial.html
 
-那么为什么还要编写呢？就是因为用的人不多，所以这方面的知识成体系的少，也就导致真的有需要的人根本找不到一个可以上手的资料。*怎么开发*、*什么模式*、*哪种技术*、*如何发布* 等等，这些内容几乎就是空白的，在你有此类需求的时候完全不知道如何上手。
+## 二、快速搭建博客
 
-所以🌶，又一套**成系列体系**的`《IDEA Plugin 开发手册》`内容已经为有需要的你准备好啦：
+这里提供 GitHub/Gitee 两种仓库来搭建博客，方便有时访问 GitHub 费劲也能用 Gitee 搭建博客。
 
-![](https://bugstack.cn/images/article/knowledge/knowledge-220123-01.png)
+- 仓库：https://github.com/fuzhengwei/fuzhengwei.github.io
+- 说明：这是一个 docsify 的博客仓库地址，一些必要的简单配置信息小傅哥已经帮你处理好了，直接使用即可。
 
-- 此开发手册，分为4章12节循序渐进的通过实践案例开发的方式，串联 IDEA Plugin 开发的各项常用技术点，为读者讲解如何开发一个 IDEA 插件。
-- 基本开发类知识点包括：`gradle 工程创建`、`插件发布`、`Swing UI`、`各类窗体`、`菜单配置`、`工程上下文对象`、`向导步骤`、`内容存放`、`配置加载`等，通过这些知识在案例中的逐个使用，而学习如何开发插件。
+### 1. GitHub Page
 
-💋`鉴于作者水平有限`，如果PDF中含有不易理解的内容，一定是作者在编写的过程中缺少必要的描述和严格的校准，感谢把你的意见或者疑问提交给我来完善，也欢迎与我多一些交互，互相进步共同成长。
+- 优点：规范、部署不限制、自由度高、配置域名不收费
+- 缺点：国内访问速度慢、仓库不能设置私有
 
-## 二、能干啥，举个栗子🌰
+1.1 第一步：Fork
 
-`vo2dto，一个已经被下载1000+的插件`
+打开 https://github.com/fuzhengwei/fuzhengwei.github.io 点击 fork 到自己的仓库。
 
-![](https://bugstack.cn/images/article/knowledge/knowledge-220123-02.png)
+1.2 第二步：配置
 
-这是小傅哥开发的一款用于帮助使用 IDEA 编写代码的研发人员，快速生成两个对象转换过程中所需要大量的 `x.set(y.get)` 代码块的 vo2dto 插件工具。*可以直接在 IDEA 中搜索安装使用*
+- 点击 Setting 进入 General 配置工程名称页面。
+- 注意：你必须把 fuzhengwei.github.io 修改为你的名称 xxx.github.io 这里的 xxx 就是你的GitHub的名称，也是 https://github.com/{xxxx} 链接后面的名称，不要修改错了，否则你就失败了。
 
-| `对vo2dto感兴趣的，程序员👨🏻‍💻‍，来自这些国家` |
-|:---:|
-| ![](https://bugstack.cn/images/article/knowledge/knowledge-220123-03.png) |
+1.3 第三步：开启
+- 点击 Setting 进入 Page 页面
+- 按照上图修改博客资源空间到 docs 文件夹下，这个步骤是选择博客空间地址，记得不要配置错了。
 
-- 插件：[https://plugins.jetbrains.com/plugin/18262-vo2dto](https://plugins.jetbrains.com/plugin/18262-vo2dto)
-- 源码：[https://github.com/fuzhengwei/vo2dto](https://github.com/fuzhengwei/vo2dto)
-- 视频：[https://www.bilibili.com/video/BV13Y411h7fv](https://www.bilibili.com/video/BV13Y411h7fv) - `讲解插件的整体设计和使用说明`
+1.4 第四步：访问
+好了，当你在配置后看到已经提醒你 Your site is published at https://fuzhengwei.github.io/ 证明你成功了，你可以访问自己的博客地址了。PS：这里要 xuewei 的等一下，因为初始化有一个过程，正在编译稍后就可以访问了。
 
-## 三、别说了，上干货吧！
+### 2. Gitee Page
 
-![](https://bugstack.cn/images/article/knowledge/knowledge-220123-04.png)
+- 优点：访问速度快、博客仓库可以设置私有
+- 缺点：不能配置自己的域名，需要上传身份信息后才可以使用
 
-**Hello, world of idea plugin ！**  你好，IDEA 插件的世界！欢迎来到这里，很高兴你能拿到这本书！
+2.1 第一步：导入
 
-IDEA 插件开发可以帮助研发人员提升能效，解决一些实际场景中的共性问题。但最近在折腾IDEA插件开发的时候，市面的资料确实不多，也没有成体系完整的开发指导手册，所以就遇到了很多不知道就不会的事情，需要一点点查询搜索源码、验证API接口，最终把各项功能实现，当然在这个过程中也确实踩了不少坑！接下来在这个专栏会把一些关于 IDEA 插件开发用到的各项知识做成案例输出出来，帮助有需要的研发伙伴，一起建设 IDEA Plugin。
+与使用 GitHub 不同，这里是在 Gitee 中导入博客仓库，如下：
 
-### 1. 适合人群
 
-1. 具备一定编程基础，工作1-3年的研发人员
-2. 有 IDEA Plugin 开发需求的研发人员
-3. 希望可以拓展一些除了业务以外的开发技能
-4. 想做一些开源软件的贡献人员
+- 进入导入工程页面：https://gitee.com/projects/import/url - 也可以从 gitee 右上角的 + 号进入。
+- 复制博客模板：https://github.com/fuzhengwei/fuzhengwei.github.io 粘贴到 Git 仓库 URL 即可。
+- 修改仓库名称、路径，为你的 gitee 账号名称，我这里的名称为 yamiedei，你复制自己的就可以了。
 
-### 2. 我能学到什么
+2.2 第二步：配置
 
-1. 看得懂，有很多的案例来串联 IDEA Plugin 插件开发技能
-2. 学得会，通过案例实践的方式学习 IDEA Plugin 开发技巧
-3. 搞得清，不只是实践，还是实际场景的结合
-4. 弄得明，学习完这套插件开发技巧，就可以自己完成一些场景设计和开发了
+- 从 服务 的 Gitee Pages 进入即可进入配置博客页面。
+- 不过如果你是初次使用 Gitee Pages 它会要求你上传认证信息，一天内审核完成。
 
-### 3. 阅读建议
+2.3 第三步：认证
 
-此专栏是以案例串联 IDEA Plugin 插件开发中常用的技巧，在学习的过程中可以先着重案例实践，在去考虑如何设计和开发，以及已经上手后再去阅读一些核心的API以及如PMD插件的开发，学习各项技术补充自己的知识。
+- 如果你到了这个页面，可以提交资料后，第二天再继续了。
 
-粉丝伙伴在阅读的过程中，**千万不要害怕在学习的过程中遇到问题，这些都是正常的！** 希望你可以一直坚持把这些内容事必躬亲、亲历亲为的学完，加油！
+2.4 第四步：开启
 
-## 四、PDF📚下载
+- 如果以上步骤都完事了，接下来你就可以开启自己的博客了，同样会给你一个博客地址，每次上传新的文章点击更新即可。
 
-**版权说明**：`作者：小傅哥`的原创PDF书籍[《IDEA Plugin 开发手册》](#)，已发布知识星球(`码农会锁`)和CSDN下载平台，享受版权保护，感谢支持和理解。
+## 三、总结
 
-### 1. 可获得内容包括
+程序员，为什么要写博客？
 
-1. 《IDEA Plugin 开发手册》PDF 完整版书籍一本
-2. 完整版源码一份，共 12 个案例
-3. 可以加入`IDEA Plugin`专栏讨论群，添加我的微信：`fustack`，备注：`IDEA Plugin`
+因为写代码只是作为一个程序员的最基本能力，如果还想继续在这条路上往前走，就需要有；提炼逻辑能力，制定标准手段、落地执行方案，而这一步步的推进都需要，就是将你的思考转换为可以看得见的内容，无论它是PPT、拓扑图、流程图还是思维导图，总之你需要一个合适的工具来表述你的想法，与沟通者最低成本完成消息传递和确认执行。
 
-### 2. 下载方式
+那么对于程序员来说，这个代码之外的能力成长，更好的方式则是编写博客、记录分享、积累沉淀，通过这样一个过程来不断的完善自己在内容表述上的能力，以及拓宽和拉伸自己的技术栈体系。
 
-- CSDN：[https://download.csdn.net/download/Yao__Shun__Yu/77484299](https://download.csdn.net/download/Yao__Shun__Yu/77484299) - `￥4.9`
-- 知识星球(`码农会锁`)：[https://t.zsxq.com/ufmQnA2](https://t.zsxq.com/ufmQnA2) - `知识星球用户可直接免费下载，不需要单独付费。此外知识星球还提供了简历优化、实战DDD秒杀项目、架构设计、PPT画架构等内容`
-- 添加小傅哥微信(fustack)获取最新下载链接，备注：`IDEA Plugin`
+好嘞，现在你也拥有了一个可以像维护代码仓库一样的文档博客，并且随着你的学习过程，不断的完善、补充、沉淀，慢慢你终将会成为一名优秀的码农大佬。加油！
 
-## 五、🎉收尾
-
-`🏃🏻总有些美景，在跑步的早上`
-
-|                              春                              |                              夏                              |                              秋                              |                              冬                              |
-| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| ![](https://bugstack.cn/images/article/knowledge/knowledge-220123-05.png) | ![](https://bugstack.cn/images/article/knowledge/knowledge-220123-06.png) | ![](https://bugstack.cn/images/article/knowledge/knowledge-220123-07.png) | ![](https://bugstack.cn/images/article/knowledge/knowledge-220123-08.png) |
-
-这是过年前的最后一本 PDF 收尾之作的发布了，这一年在内容输出上包括了：[`《SpringBoot 中间件的设计和开发》`](https://bugstack.cn/md/project/springboot-middleware/2021-03-31-%E3%80%8ASpringBoot%20%E4%B8%AD%E9%97%B4%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%BC%80%E5%8F%91%E3%80%8B%E4%B8%93%E6%A0%8F%E5%B0%8F%E5%86%8C%E4%B8%8A%E7%BA%BF%E5%95%A6%EF%BC%81.html)、[`《重学Java设计模式》`出版图书](https://mp.weixin.qq.com/s/g9LYQEqzOeiYOpfG_5XFYg)、[`《手撸 Spring》`](https://mp.weixin.qq.com/s/kYio8zIG5UL-To3SV-uRmA)、[`《Lottery 抽奖系统 - 基于领域驱动设计的四层架构实践》`](https://bugstack.cn/md/project/lottery/introduce/Lottery%E6%8A%BD%E5%A5%96%E7%B3%BB%E7%BB%9F.html)、[`《IDEA Plugin 开发手册》`](https://download.csdn.net/download/Yao__Shun__Yu/77484299)，哈哈哈，是不是就挺肝的！当一个原创做作者有了粉丝的正向反馈、有了平台的扶持、有了一些收益，就可以非常好的在喜欢的领域上不断的耕作。
-
-**当看着一个个从发芽🌱到长大的内容🌲**，真的是非常的开心。这个过程也是我这一年每天能 10:45-11:00 睡觉，6:20 起床(跑步、写作)，以此保持一个良好的作息习惯，有了健康的身体、有了内容的沉淀。也希望看到的这你，在22年有一个自己的计划，能落地的计划！
