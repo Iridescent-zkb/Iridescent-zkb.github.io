@@ -6,7 +6,7 @@ docsify 可以快速帮你生成文档网站。不同于 GitBook、Hexo 的地�
 
 ### 1. 目录结构
 
- [](docs/assets/img/catalogue.png)
+ ![catalogue](docs/assets/img/catalogue.png)
 - docsify 的目录结构配置非常简单，如果你不需要修改的话，只是 md 目录编写文档，在 _sidebar.md 配置文章路径即可。
 - index.html 用于配置一些网站的基础信息，包括：网站采集、留言板、地址等。
 - _coverpage.md 用于配置博客首页的介绍信息和网站Logo等。
